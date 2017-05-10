@@ -3,9 +3,21 @@
 ## 让thinkphp3.2支持mongdb驱动
 原来的tp3.2的mongo驱动不能在php5.4以上，更不能在php7上面运行，这个drive是将thinkphp5的驱动移植到thinkphp3.2的，没完全测试，可能有bug。
 
-
-## model_pdo 
-将tp3的model模块抽取出来了，独立放到一个文件里，使用了mysql驱动，其它项目只要include进去，就可以使用tp的model了。
+### 使用方法：
+config.php
+```
+return array(
+   "log" =>  array(
+        'DB_HOST' => "127.0.0.1",
+        'DB_USER' => "root",
+        'DB_PWD'  => "123456",
+        'DB_NAME' => 'test',
+        'DB_TYPE' => "mongo",
+        'DB_CHARSET'=>'utf8',
+        'DB_PREFIX' => 'think_',
+    ),
+);
+```
 
 
 注意
@@ -35,6 +47,14 @@ model.class.php 1797行改为:
     }
 
 ```
+
+
+
+
+
+## model_pdo 
+将tp3的model模块抽取出来了，独立放到一个文件里，使用了mysql驱动，其它项目只要include进去，就可以使用tp的model了。
+
 
 
 ```

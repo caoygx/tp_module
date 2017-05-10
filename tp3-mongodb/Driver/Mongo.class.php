@@ -180,7 +180,7 @@ class Mongo extends Driver
                 $this->config['pk'] = 'id';
             }
             $host = 'mongodb://' . ($config['username'] ? "{$config['username']}" : '') . ($config['password'] ? ":{$config['password']}@" : '') . $config['hostname'] . ($config['hostport'] ? ":{$config['hostport']}" : '') . '/' . ($config['database'] ? "{$config['database']}" : '');
-            $host = 'mongodb://localhost:27017/test';
+            //$host = 'mongodb://localhost:27017/test';
             if ($config['debug']) {
                 $startTime = microtime(true);
             }
@@ -2533,6 +2533,7 @@ class Mongo extends Driver
             call_user_func_array($data, [& $this]);
             $data = null;
         }
+
         // 分析查询表达式
         $options = $this->parseExpress();
         if (!is_null($data)) {
@@ -2549,7 +2550,7 @@ class Mongo extends Driver
         }
         if (!$resultSet) {
             // 生成MongoQuery对象
-            //$query = $this->builder->select($options);
+            //var_dump($options);
             $where = $this->parseWhere($options['where']);
             //$where['$and'] = ['uid'=>'9','title'=>'大清'];
             //var_dump($where);exit;
